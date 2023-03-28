@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Text Area Form Field Example</title>
+    <link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+
+<link rel="stylesheet" href=<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  </head>
+  <body>
+  
+<!-- <div class="logo">
+  <h1>&nbsp;&nbsp;&nbsp;focus <i class="material-icons">settings_suggest</i></h1>
+</div> -->
+
+  
+      <div class="feelinghow">
+      <form>
+<label for="feelinghow"><span class="start-here-text">START HERE</span><br>What is the issue?</label>
+        <br>
+        <textarea tabindex="1" id="feelinghow" name="feelinghow" rows="3" cols="25" autofocus style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>      
+	  
+      <div class="wanttofeel">
+      <form>
+        <label for="wanttofeel">How do you want to feel?</label>
+        <br>
+        <textarea tabindex="2" id="wanttofeel" name="wanttofeel" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+   
+      
+      <div class="better1">
+      <form>
+		<label id="label-better1" for="better1">Better Feeling Thought 1</label>
+        <br>
+        <textarea tabindex="3" id="better1" name="better1" rows="3" cols="25" style="resize: none;" oninput="onBetter1InputChange()"></textarea>
+</textarea>
+        <br>
+      </form>
+      </div>
+      
+	  
+      <div class="better2">
+      <form>
+        <label for="better2">Better Thought 2</label>
+        <br>
+        <textarea tabindex="4" id="better2" name="better2" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+      <div class="better3">
+      <form>
+        <label for="better3">Better Thought 3</label>
+        <br>
+        <textarea tabindex="5" id="better3" name="better3" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+      <div class="better4">
+      <form>
+        <label for="better4">Better Thought 4</label>
+        <br>
+        <textarea tabindex="6" id="better4" name="better4" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+      <div class="better5">
+      <form>
+        <label for="better5">Better Thought 5</label>
+        <br>
+        <textarea  tabindex="7" id="better5" name="better5" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+      <div class="better6">
+      <form>
+        <label for="better6">Better Thought 6</label>
+        <br>
+        <textarea tabindex="8" id="better6" name="better6" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+		<div class="better7">
+		  <form>
+			<label for="better7">Better Thought 7</label>
+			<br>
+			<textarea tabindex="9" id="better7" name="better7" rows="3" cols="25" style="resize: none;"></textarea>
+			<br>
+		  </form>
+		</div>
+
+      <div class="better8">
+      <form>
+        <label for="better8">Better Thought 8</label>
+        <br>
+        <textarea  tabindex="10" id="better8" name="better8" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+      <div class="better9">
+      <form>
+        <label for="better9">Better Thought 9</label>
+        <br>
+        <textarea id="better9" tabindex="11" name="better9" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+      <div class="better10">
+      <form>
+        <label for="better10">Better Thought 10</label>
+        <br>
+        <textarea tabindex="12" id="better10" name="better10" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+      
+      <div class="better11">
+      <form>
+        <label for="better11">Better Thought 11</label>
+        <br>
+        <textarea tabindex="13" id="better11" name="better11" rows="3" cols="25" style="resize: none;"></textarea>
+        <br>
+      </form>
+      </div>
+	  
+
+	  <div class="better12">
+  <form>
+    <label for="better12"><span class="yellow-label">Final Best Thought</span></label>
+    <br>
+    <textarea tabindex="14" id="better12" name="better12" class="yellow-textarea" rows="3" cols="25" style="resize: none;"></textarea>
+    <br>
+  </form>
+</div>
+
+<button tabindex="15" onclick="saveScreenshot()" class="screenshot-button">Save Screenshot</button>
+<button tabindex="16" onclick="saveAsTextFile()" class="save-button">Save as Text File</button>
+ <button tabindex="17" onclick="clearAllEntries()" class="clear-button">Clear All Entries</button>
+
+
+<script>
+  function saveAsTextFile() {
+    const textAreas = document.querySelectorAll('textarea');
+    let content = '';
+
+    textAreas.forEach((textArea) => {
+      content += textArea.previousElementSibling.innerText + '\n';
+      content += textArea.value + '\n\n';
+    });
+
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'page_data.txt';
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+  
+  function onBetter1InputChange() {
+  const better1 = document.getElementById("better1");
+  const labelBetter1 = document.getElementById("label-better1");
+
+  if (better1.value.length > 0) {
+    labelBetter1.style.color = "#FFFFFF";
+    better1.style.border = "none";
+  } else {
+    labelBetter1.style.color = "#8BC34A";
+    better1.style.border = "5px solid #8BC34A";
+  }
+}
+
+</script>
+
+
+<script>
+  function clearAllEntries() {
+    const textAreas = document.querySelectorAll('textarea');
+    textAreas.forEach((textArea) => {
+      textArea.value = '';
+    });
+  }
+</script>
+<script>
+  function saveScreenshot() {
+    html2canvas(document.body).then(function (canvas) {
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL();
+      link.download = 'screenshot.png';
+      link.click();
+    });
+  }
+</script>
+
+
+  </body>
+</html>
