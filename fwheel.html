@@ -30,7 +30,7 @@
       <form>
 <label for="feelinghow"><span class="start-here-text">START HERE</span><br>What is the issue?</label>
         <br>
-        <textarea tabindex="1" id="feelinghow" name="feelinghow" rows="3" cols="25" autofocus style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)" tabindex="1" id="feelinghow" name="feelinghow" rows="3" cols="25" autofocus style="resize: none;"></textarea>
         <br>
       </form>
       </div>      
@@ -39,7 +39,7 @@
       <form>
         <label for="wanttofeel">How do you want to feel?</label>
         <br>
-        <textarea tabindex="2" id="wanttofeel" name="wanttofeel" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="2" id="wanttofeel" name="wanttofeel" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -50,7 +50,7 @@
       <form>
 		<label id="label-better1" for="better1">Better Feeling Thought 1</label>
         <br>
-        <textarea tabindex="3" id="better1" name="better1" rows="3" cols="25" style="resize: none;" oninput="onBetter1InputChange()"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="3" id="better1" name="better1" rows="3" cols="25" style="resize: none;" oninput="onBetter1InputChange()"></textarea>
 </textarea>
         <br>
       </form>
@@ -61,7 +61,7 @@
       <form>
         <label for="better2">Better Thought 2</label>
         <br>
-        <textarea tabindex="4" id="better2" name="better2" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="4" id="better2" name="better2" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -70,7 +70,7 @@
       <form>
         <label for="better3">Better Thought 3</label>
         <br>
-        <textarea tabindex="5" id="better3" name="better3" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="5" id="better3" name="better3" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -79,7 +79,7 @@
       <form>
         <label for="better4">Better Thought 4</label>
         <br>
-        <textarea tabindex="6" id="better4" name="better4" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="6" id="better4" name="better4" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -88,7 +88,7 @@
       <form>
         <label for="better5">Better Thought 5</label>
         <br>
-        <textarea  tabindex="7" id="better5" name="better5" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"   tabindex="7" id="better5" name="better5" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -97,7 +97,7 @@
       <form>
         <label for="better6">Better Thought 6</label>
         <br>
-        <textarea tabindex="8" id="better6" name="better6" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="8" id="better6" name="better6" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -106,7 +106,7 @@
 		  <form>
 			<label for="better7">Better Thought 7</label>
 			<br>
-			<textarea tabindex="9" id="better7" name="better7" rows="3" cols="25" style="resize: none;"></textarea>
+			<textarea onkeydown="handleEnterKey(event)"  tabindex="9" id="better7" name="better7" rows="3" cols="25" style="resize: none;"></textarea>
 			<br>
 		  </form>
 		</div>
@@ -115,7 +115,7 @@
       <form>
         <label for="better8">Better Thought 8</label>
         <br>
-        <textarea  tabindex="10" id="better8" name="better8" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"   tabindex="10" id="better8" name="better8" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -124,7 +124,7 @@
       <form>
         <label for="better9">Better Thought 9</label>
         <br>
-        <textarea id="better9" tabindex="11" name="better9" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  id="better9" tabindex="11" name="better9" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -133,7 +133,7 @@
       <form>
         <label for="better10">Better Thought 10</label>
         <br>
-        <textarea tabindex="12" id="better10" name="better10" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="12" id="better10" name="better10" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -142,7 +142,7 @@
       <form>
         <label for="better11">Better Thought 11</label>
         <br>
-        <textarea tabindex="13" id="better11" name="better11" rows="3" cols="25" style="resize: none;"></textarea>
+        <textarea onkeydown="handleEnterKey(event)"  tabindex="13" id="better11" name="better11" rows="3" cols="25" style="resize: none;"></textarea>
         <br>
       </form>
       </div>
@@ -152,7 +152,7 @@
   <form>
     <label for="better12"><span class="yellow-label">Final Best Thought</span></label>
     <br>
-    <textarea tabindex="14" id="better12" name="better12" class="yellow-textarea" rows="3" cols="25" style="resize: none;"></textarea>
+    <textarea onkeydown="handleEnterKey(event)"  tabindex="14" id="better12" name="better12" class="yellow-textarea" rows="3" cols="25" style="resize: none;"></textarea>
     <br>
   </form>
 </div>
@@ -216,6 +216,20 @@
   }
 </script>
 
+<script>
+
+function handleEnterKey(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const nextElement = document.querySelector(`[tabindex="${parseInt(event.target.getAttribute('tabindex')) + 1}"]`);
+    if (nextElement) {
+      nextElement.focus();
+    }
+  }
+}
+
+
+</script>
 
   </body>
 </html>
