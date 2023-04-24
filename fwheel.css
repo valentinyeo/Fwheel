@@ -222,42 +222,50 @@ label[for=better1] {
   color: white;
 }
 
-/* ... (previous CSS code) ... */
 
-nav {
-  width: 100%;
-  padding: 10px;
+
+
+ .top-buttons {
+    position: absolute;
+    top: 1rem;
+    display: flex;
+  }
+
+  .top-button-wrapper {
+    margin: 0 0.5rem;
+  }
+
+  .top-button {
+    color: #ffffff;
+    background-color: #bb86fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+  }
+
+  .top-button.selected {
+    background-color: #3700b3;
+  }
+
+  .shortcut {
+    font-size: 0.7rem;
+    text-align: center;
+    margin: 0;
+  }
+
+
+.button-wrapper {
   display: flex;
-  justify-content: left;
-  align-items: left;
-  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px 20px; /* Padding for a larger button area */
-  margin-right: 10px; /* Add right margin to create space between buttons */
-  border: 2px solid #ffffff; /* White border */
-  border-radius: 4px; /* Rounded corners */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
-
-nav a:last-child {
-  margin-right: 0; /* Remove right margin for the last button */
-}
-
-nav a:hover {
-  text-decoration: none;
-  background-color: #ffffff; /* Change background color on hover */
-  color: #6200ee; /* Change text color on hover */
-}
-
-nav a.active {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-/* ... (remaining CSS code) ... */
-

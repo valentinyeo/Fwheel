@@ -18,10 +18,20 @@
   </head>
   <body>
   
-    <nav>
-    <a href="pmat.html">PMAT 🌌❇️</a>
-    <a href="fwheel.html" class="active">FWHEEL 🛞✨</a>
-  </nav>
+  <div class="top-buttons">
+    <div class="top-button-wrapper">
+      <a href="pmat.html" class="top-button" tabindex="-1">PMAT 🌌❇️</a>
+      <p class="shortcut">Alt+1</p>
+    </div>
+    <div class="top-button-wrapper">
+      <a href="fwheel.html" class="top-button selected" tabindex="-1">FWHEEL 🛞✨</a>
+      <p class="shortcut">Alt+2</p>
+    </div>
+    <div class="top-button-wrapper">
+      <a href="mpages.html" class="top-button" tabindex="-1">MPAGES 📝🌅</a>
+      <p class="shortcut">Alt+3</p>
+    </div>
+  </div>
   
 <!-- <div class="logo">
   <h1>&nbsp;&nbsp;&nbsp;focus <i class="material-icons">settings_suggest</i></h1>
@@ -230,7 +240,17 @@ function handleEnterKey(event) {
   }
 }
 
-
+document.addEventListener('keydown', function(event) {
+  if (event.altKey) {
+    if (event.key === '1') {
+      window.location.href = 'pmat.html';
+    } else if (event.key === '2') {
+      window.location.href = 'fwheel.html';
+    } else if (event.key === '3') {
+      window.location.href = 'mpages.html';
+    }
+  }
+});
 </script>
 
   </body>
