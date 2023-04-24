@@ -20,6 +20,11 @@
   .top-buttons {
     position: absolute;
     top: 1rem;
+    display: flex;
+  }
+
+  .top-button-wrapper {
+    margin: 0 0.5rem;
   }
 
   .top-button {
@@ -28,10 +33,20 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 0.5rem;
     padding: 0.5rem;
     font-size: 1rem;
     text-decoration: none;
+    display: block;
+  }
+
+  .top-button.selected {
+    background-color: #3700b3;
+  }
+
+  .shortcut {
+    font-size: 0.7rem;
+    text-align: center;
+    margin: 0;
   }
 
   textarea {
@@ -70,20 +85,35 @@
 </head>
 <body>
 <div class="top-buttons">
-  <a href="pmat.html" class="top-button">PMAT 🌌❇️</a>
-  <a href="fwheel.html" class="top-button">FWHEEL 🛞✨</a>
+  <div class="top-button-wrapper">
+    <a href="pmat.html" class="top-button">PMAT 🌌❇️</a>
+    <p class="shortcut">Alt+1</p>
+  </div>
+  <div class="top-button-wrapper">
+    <a href="fwheel.html" class="top-button">FWHEEL 🛞✨</a>
+    <p class="shortcut">Alt+2</p>
+  </div>
+  <div class="top-button-wrapper">
+    <a href="#" class="top-button selected">MPAGES 📝🌅</a>
+    <p class="shortcut">Alt+3</p>
+  </div>
 </div>
-<textarea id="morningPages" placeholder="Write your morning pages here..." autofocus tabindex="1"></textarea>
-<button onclick="resetMorningPages()" tabindex="2">Reset</button>
+<textarea id="morningPages" placeholder="Write your morning pages here..." autofocus></textarea>
+<button onclick="resetMorningPages()">Reset</button>
+<p class="shortcut">Ctrl+Enter</p>
 
 <script>
-  function resetMorningPages() {
-    document.getElementById('morningPages').value = '';
-  }
-
   document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'Enter') {
-      resetMorningPages();
+    if (event.altKey) {
+      if (event.key === '1') {
+        window.location.href = 'pmat.html';
+      } else if (event.key === '2') {
+        window.location.href = 'fwheel.html';
+      } else if (event.key === '3') {
+        window.location.href = 'mpages.html';
+      }
+    } else if (event.ctrlKey && event.key === 'Enter') {
+      // Add your reset functionality here
     }
   });
 </script>

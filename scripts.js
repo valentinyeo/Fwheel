@@ -1,68 +1,74 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const resetButton = document.getElementById("reset-button");
-  const saveButton = document.getElementById("save-button");
-  const leftTextarea = document.getElementById("left-textarea");
-  const rightTextarea = document.getElementById("right-textarea");
-
-  // Load content from local storage
-  leftTextarea.value = localStorage.getItem("leftContent") || "";
-  rightTextarea.value = localStorage.getItem("rightContent") || "";
-
-  resetButton.addEventListener("click", reset);
-  saveButton.addEventListener("click", saveAsTxt);
-
-  leftTextarea.addEventListener("keydown", handleTab);
-  rightTextarea.addEventListener("keydown", handleTab);
-
-  leftTextarea.addEventListener("input", () => {
-    localStorage.setItem("leftContent", leftTextarea.value);
-  });
-  rightTextarea.addEventListener("input", () => {
-    localStorage.setItem("rightContent", rightTextarea.value);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.ctrlKey && event.key === "Enter") {
-      reset();
-    }
-    if (event.ctrlKey && event.key === "s") {
+  document.addEventListener('keydown', function(event) {
+    if (event.altKey) {
+      if (event.key === '1') {
+        window.location.href = 'pmat.html';
+      } else if (event.key === '2') {
+        window.location.href = 'fwheel.html';
+      } else if (event.key === '3') {
+        window.location.href = 'mpages.html';
+      }
+    } else if (event.ctrlKey && event.key === 'Enter') {
+      resetTextAreas();
+    } else if (event.ctrlKey && (event.key === 'S' || event.key === 's')) {
       event.preventDefault();
-      saveAsTxt();
+      saveTextAreasAsFile();
     }
   });
 
-  function handleTab(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
-      const target = event.target === leftTextarea ? rightTextarea : leftTextarea;
-      target.focus();
-      target.selectionStart = target.selectionEnd = target.value.length;
+  function resetTextAreas() {
+    document.getElementById('left-textarea').value = '';
+    document.getElementById('right-textarea').value = '';
+    localStorage.removeItem('left-textarea');
+    localStorage.removeItem('right-textarea');
+  }
+  
+document.addEventListener('keydown', handleTab);
+
+function handleTab(event) {
+  if (event.key === "Tab") {
+    event.preventDefault();
+    if (document.activeElement === leftTextarea) {
+      rightTextarea.focus();
+      rightTextarea.selectionStart = rightTextarea.selectionEnd = rightTextarea.value.length;
+    } else if (document.activeElement === rightTextarea) {
+      leftTextarea.focus();
+      leftTextarea.selectionStart = leftTextarea.selectionEnd = leftTextarea.value.length;
+    } else {
+      leftTextarea.focus();
+      leftTextarea.selectionStart = leftTextarea.selectionEnd = leftTextarea.value.length;
     }
   }
+}
 
-  function reset() {
-    document.body.classList.add("fire-animation");
-    setTimeout(() => {
-      leftTextarea.value = "";
-      rightTextarea.value = "";
-      document.body.classList.remove("fire-animation");
-    }, 1000);
+
+
+
+
+
+  function saveTextAreasAsFile() {
+    const leftText = document.getElementById('left-textarea').value;
+    const rightText = document.getElementById('right-textarea').value;
+    const combinedText = `My Todos:\n${leftText}\n\nUniverse Todos:\n${rightText}`;
+    const blob = new Blob([combinedText], { type: 'text/plain;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'todos.txt';
+    link.click();
   }
 
-  function saveAsTxt() {
-    const leftContent = `Stuff that I do:\n${leftTextarea.value}`;
-    const rightContent = `Stuff that the universe does for me:\n${rightTextarea.value}`;
-    const combinedContent = `${leftContent}\n\n${rightContent}`;
-    const blob = new Blob([combinedContent], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
+  document.getElementById('reset-button').addEventListener('click', resetTextAreas);
+  document.getElementById('save-button').addEventListener('click', saveTextAreasAsFile);
 
-    a.href = url;
-    a.download = "content.txt";
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-});
+  const leftTextarea = document.getElementById('left-textarea');
+  const rightTextarea = document.getElementById('right-textarea');
+
+  leftTextarea.value = localStorage.getItem('left-textarea') || '';
+  rightTextarea.value = localStorage.getItem('right-textarea') || '';
+
+  leftTextarea.addEventListener('input', function() {
+    localStorage.setItem('left-textarea', leftTextarea.value);
+  });
+
+  rightTextarea.addEventListener('input', function() {
+    localStorage.setItem('right-textarea', rightTextarea.value);
+  });

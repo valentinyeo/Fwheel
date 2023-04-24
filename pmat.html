@@ -6,15 +6,23 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script defer src="scripts.js"></script>
- <title>PMAT 🌌❇️</title>
+  <title>PMAT 🌌❇️</title>
 </head>
 <body>
- <!-- Add navigation element -->
- <nav>
-    <a href="pmat.html" class="active">PMAT 🌌❇️</a>
-    <a href="fwheel.html">FWheel</a>
-  </nav>
-
+  <div class="top-buttons">
+    <div class="top-button-wrapper">
+      <a href="pmat.html" class="top-button selected" tabindex="-1">PMAT 🌌❇️</a>
+      <p class="shortcut">Alt+1</p>
+    </div>
+    <div class="top-button-wrapper">
+      <a href="fwheel.html" class="top-button" tabindex="-1">FWHEEL 🛞✨</a>
+      <p class="shortcut">Alt+2</p>
+    </div>
+    <div class="top-button-wrapper">
+      <a href="mpages.html" class="top-button" tabindex="-1">MPAGES 📝🌅</a>
+      <p class="shortcut">Alt+3</p>
+    </div>
+  </div>
   <section class="container">
     <div class="section" id="left-section">
       <h1>MY TODOS</h1>
@@ -25,9 +33,16 @@
       <textarea id="right-textarea"></textarea>
     </div>
   </section>
-  <div class="button-container">
-    <button id="save-button">Save as TXT</button>
-    <button id="reset-button">Reset</button>
+<div class="button-container">
+    <div class="button-wrapper">
+      <button id="save-button">Save as TXT</button>
+      <p class="shortcut">Ctrl+S</p>
+    </div>
+    <div class="button-wrapper">
+      <button id="reset-button">Reset</button>
+      <p class="shortcut">Ctrl+Enter</p>
+    </div>
   </div>
+
 </body>
 </html>
