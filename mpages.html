@@ -17,6 +17,23 @@
     margin: 0;
   }
 
+  .top-buttons {
+    position: absolute;
+    top: 1rem;
+  }
+
+  .top-button {
+    color: #ffffff;
+    background-color: #bb86fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
   textarea {
     width: 60ch; /* Optimal width for reading */
     max-width: 90%;
@@ -52,6 +69,10 @@
 </style>
 </head>
 <body>
+<div class="top-buttons">
+  <a href="pmat.html" class="top-button">PMAT 🌌❇️</a>
+  <a href="fwheel.html" class="top-button">FWHEEL 🛞✨</a>
+</div>
 <textarea id="morningPages" placeholder="Write your morning pages here..." autofocus tabindex="1"></textarea>
 <button onclick="resetMorningPages()" tabindex="2">Reset</button>
 
