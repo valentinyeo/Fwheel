@@ -169,9 +169,13 @@
   </form>
 </div>
 
-<button tabindex="15" onclick="saveScreenshot()" class="screenshot-button">Save Screenshot</button>
-<button tabindex="16" onclick="saveAsTextFile()" class="save-button">Save as Text File</button>
- <button tabindex="17" onclick="clearAllEntries()" class="clear-button">Clear All Entries</button>
+<button tabindex="-1" onclick="saveScreenshot()" class="screenshot-button">Save Screenshot</button>
+<button tabindex="-1" onclick="saveAsTextFile()" class="save-button">Save as Text File</button>
+<button tabindex="-1" onclick="clearAllEntries()" class="clear-button">Reset</button>
+ 
+
+
+    
 
 
 <script>
@@ -210,12 +214,17 @@
 
 
 <script>
-  function clearAllEntries() {
-    const textAreas = document.querySelectorAll('textarea');
-    textAreas.forEach((textArea) => {
-      textArea.value = '';
-    });
+function clearAllEntries() {
+  const textAreas = document.querySelectorAll('textarea');
+  textAreas.forEach((textArea) => {
+    textArea.value = '';
+  });
+  const firstElement = document.querySelector('[tabindex="1"]');
+  if (firstElement) {
+    firstElement.focus();
   }
+}
+
 </script>
 <script>
   function saveScreenshot() {
@@ -237,11 +246,31 @@ function handleEnterKey(event) {
     if (nextElement) {
       nextElement.focus();
     }
+  } else if (event.key === 'Tab') {
+    event.preventDefault();
+    const elementsWithTabIndex = document.querySelectorAll('[tabindex]');
+    const direction = event.shiftKey ? -1 : 1;
+    const nextIndex = parseInt(event.target.getAttribute('tabindex')) + direction;
+    const nextElement = [...elementsWithTabIndex].find(element => parseInt(element.getAttribute('tabindex')) === nextIndex) || (direction === 1 ? elementsWithTabIndex[0] : elementsWithTabIndex[elementsWithTabIndex.length - 1]);
+    nextElement.focus();
+    event.preventDefault(); // Add this line to prevent the default Tab behavior
   }
 }
 
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.ctrlKey && event.key === 'Enter') {
+    clearAllEntries();
+  }
+});
+
+
+
+
 document.addEventListener('keydown', function(event) {
   if (event.altKey) {
+    event.preventDefault(); // Add this line to prevent the default Alt key behavior
     if (event.key === '1') {
       window.location.href = 'pmat.html';
     } else if (event.key === '2') {
@@ -251,6 +280,7 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
+
 </script>
 
   </body>
