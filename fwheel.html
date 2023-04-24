@@ -169,10 +169,19 @@
   </form>
 </div>
 
-<button tabindex="-1" onclick="saveScreenshot()" class="screenshot-button">Save Screenshot</button>
-<button tabindex="-1" onclick="saveAsTextFile()" class="save-button">Save as Text File</button>
-<button tabindex="-1" onclick="clearAllEntries()" class="clear-button">Reset</button>
- 
+<div class="button-wrapper">
+  <div class="button-container">
+    <button tabindex="-1" onclick="saveScreenshot()" class="screenshot-button">Screenshot (Ctrl+Shift+S)</button>
+
+  </div>
+  <div class="button-container">
+    <button tabindex="-1" onclick="saveAsTextFile()" class="save-button">.txt (Ctrl+Shift+T)</button>
+  
+  </div>
+  <div class="button-container">
+    <button tabindex="-1" onclick="clearAllEntries()" class="clear-button">Reset (Ctrl+Enter)</button>
+  </div>
+</div>
 
 
     
@@ -260,8 +269,14 @@ function handleEnterKey(event) {
 
 
 document.addEventListener('keydown', function(event) {
-  if (event.ctrlKey && event.key === 'Enter') {
-    clearAllEntries();
+  if (event.ctrlKey) {
+    if (event.key === 'Enter') {
+      clearAllEntries();
+    } else if (event.shiftKey && (event.key === 's' || event.key === 'S')) {
+      saveScreenshot();
+    } else if (event.shiftKey && (event.key === 't' || event.key === 'T')) {
+      saveAsTextFile();
+    }
   }
 });
 
