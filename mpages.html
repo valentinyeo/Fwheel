@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPAGES</title>
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  textarea {
+    width: 60ch; /* Optimal width for reading */
+    max-width: 90%;
+    height: 70%;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  button {
+    width: 100px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #bb86fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  button:focus {
+    outline: none;
+  }
+</style>
+</head>
+<body>
+<textarea id="morningPages" placeholder="Write your morning pages here..." autofocus tabindex="1"></textarea>
+<button onclick="resetMorningPages()" tabindex="2">Reset</button>
+
+<script>
+  function resetMorningPages() {
+    document.getElementById('morningPages').value = '';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'Enter') {
+      resetMorningPages();
+    }
+  });
+</script>
+</body>
+</html>
