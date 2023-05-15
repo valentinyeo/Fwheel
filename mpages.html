@@ -105,19 +105,30 @@
 <p class="shortcut">Ctrl+Enter</p>
 
 <script>
+  // Get a reference to the textarea
+  const morningPages = document.getElementById('morningPages');
+
+  // Function to reset the morning pages
+  function resetMorningPages() {
+    morningPages.value = '';
+  }
+
   document.addEventListener('keydown', function(event) {
+    // For better compatibility across browsers, use `event.code` instead of `event.key`
     if (event.altKey) {
-      if (event.key === '1') {
+      if (event.code === 'Digit1') {
         window.location.href = 'pmat.html';
-      } else if (event.key === '2') {
+      } else if (event.code === 'Digit2') {
         window.location.href = 'fwheel.html';
-      } else if (event.key === '3') {
+      } else if (event.code === 'Digit3') {
         window.location.href = 'mpages.html';
       }
-    } else if (event.ctrlKey && event.key === 'Enter') {
-      // Add your reset functionality here
+    } else if (event.ctrlKey && event.code === 'Enter') {
+      // Clear the morning pages
+      resetMorningPages();
     }
   });
+</script>
 </script>
 </body>
 </html>
